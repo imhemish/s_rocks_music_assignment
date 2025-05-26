@@ -1,0 +1,54 @@
+import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
+import 'package:flutter/foundation.dart'
+    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+
+const PROJECT_ID = 'firebase project ID here';
+const STORAGE_BUCKET = '$PROJECT_ID.firebasestorage.app';
+const MESSAGING_SENDER_ID = 'firebase messaging sender ID here';
+
+
+class DefaultFirebaseOptions {
+  static FirebaseOptions get currentPlatform {
+    if (kIsWeb) {
+      return web;
+    }
+    switch (defaultTargetPlatform) {
+      case TargetPlatform.android:
+        return android;
+      case TargetPlatform.iOS:
+        return ios;
+      default:
+        throw UnsupportedError(
+          'DefaultFirebaseOptions are not supported for this platform.',
+        );
+    }
+  }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'web API Key here',
+    appId: 'web app ID here',
+    messagingSenderId: MESSAGING_SENDER_ID,
+    projectId: PROJECT_ID,
+    authDomain: '$PROJECT_ID.firebaseapp.com',,
+    storageBucket: STORAGE_BUCKET,
+    measurementId: 'web measurement ID here',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'android API Key here',
+    appId: 'android app ID here',
+    messagingSenderId: MESSAGING_SENDER_ID,
+    projectId: PROJECT_ID,
+    storageBucket: STORAGE_BUCKET,
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'ios API Key here',
+    appId: 'ios app ID here',
+    messagingSenderId: MESSAGING_SENDER_ID,
+    projectId: PROJECT_ID,
+    storageBucket: STORAGE_BUCKET,
+    iosBundleId: 'ios bundle ID here',
+  );
+
+}
