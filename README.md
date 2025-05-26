@@ -2,6 +2,14 @@
 
 Here is the project for submission of assignment for Flutter Dev Intern role at S.Rocks.Music
 
+## Video
+
+
+
+https://github.com/user-attachments/assets/5e0a2e86-c0ab-4f1e-b63a-4c8fe0b651b8
+
+
+
 ## Folder Structure
 
 I used MVVM structure as asked in assignment and here is the description what I did in each file:
